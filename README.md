@@ -100,6 +100,7 @@ npm install fsesm
 | **`updatePackageJson<T>(options, updater)`**        | Updates the nearest `package.json` file using an async updater function.        | `options: { cwd?: string, maxDepth?: number }`, `updater: UpdateJsonFunc<T>`      |
 | **`findEnvFile(options)`**                          | Finds the nearest `.env` file.                                                  | `options: { cwd?: string, name?: string, maxDepth?: number }`                     |
 | **`readEnvFile<T>(options)`**                       | Reads and parses the nearest `.env` file.                                       | `options: { cwd?: string, name?: string, maxDepth?: number }`                     |
+| **`parseEnv<T>(data)`**                             | Parses a `.env` file content into an object.                                    | `data: string`                                                                    |
 | **`writeEnvVar(envPath, key, value, onlyIfEmpty)`** | Writes a key-value pair to a `.env` file. Updates if the key exists.            | `envPath: string`, `key: string`, `value: string`, `onlyIfEmpty: boolean = false` |
 | **`getEmptyEnvKeys(envPath)`**                      | Finds empty or missing keys in a `.env` file.                                   | `envPath: string`                                                                 |
 | **`writeEnvRecord(envPath, record)`**               | Writes a record of key-value pairs to a `.env` file.                            | `envPath: string`, `record: Record<string, string>`                               |
