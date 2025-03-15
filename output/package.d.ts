@@ -27,5 +27,5 @@ export declare function readPackageJson<T extends Record<string, any> = Record<s
  * @param update Function to update the JSON data.
  * @returns The updated JSON data.
  */
-export declare function updatePackageJson<T extends Record<string, any> = Record<string, any>>(options: FindPackageJsonOptions, update: UpdateJsonFunc<T>): Promise<T | null>;
+export declare function updatePackageJson<T extends Record<string, any> = Record<string, any>>(update: UpdateJsonFunc<T>, options?: FindPackageJsonOptions): Promise<T | null>;
 //# sourceMappingURL=package.d.ts.map

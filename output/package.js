@@ -44,7 +44,7 @@ export async function readPackageJson(options = {}) {
  * @param update Function to update the JSON data.
  * @returns The updated JSON data.
  */
-export async function updatePackageJson(options = {}, update) {
+export async function updatePackageJson(update, options = {}) {
     const data = await readPackageJson(options);
     if (!data)
         return null;

@@ -53,7 +53,7 @@ export async function readPackageJson<T extends Record<string, any> = Record<str
  * @param update Function to update the JSON data.
  * @returns The updated JSON data.
  */
-export async function updatePackageJson<T extends Record<string, any> = Record<string, any>>(options: FindPackageJsonOptions = {}, update: UpdateJsonFunc<T>): Promise<T | null> {
+export async function updatePackageJson<T extends Record<string, any> = Record<string, any>>(update: UpdateJsonFunc<T>, options: FindPackageJsonOptions = {}): Promise<T | null> {
     const data = await readPackageJson(options);
     if (!data) return null;
     const updated = await update(data.data as T);
