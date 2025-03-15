@@ -1,6 +1,6 @@
 {
   "name": "fsesm",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "🚀 A modern, lightweight utility library for working with the file system in ESM and TypeScript projects.",
   "type": "module",
   "private": false,
@@ -44,8 +44,8 @@
     "README.md",
     "LICENSE.md"
   ],
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./output/index.js",
+  "types": "./output/index.d.ts",
   "engines": {
     "node": ">=16.0.0"
   }
