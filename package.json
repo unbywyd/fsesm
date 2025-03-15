@@ -1,0 +1,52 @@
+{
+  "name": "fsesm",
+  "version": "0.1.0",
+  "description": "A modern, lightweight utility library for working with the file system in ESM and TypeScript projects.",
+  "type": "module",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "author": {
+    "name": "Artyom Gorlovetskiy",
+    "email": "unbywyd@gmail.com",
+    "url": "https://github.com/unbywyd"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unbywyd/fsesm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unbywyd/fsesm/issues"
+  },
+  "homepage": "https://github.com/unbywyd/fsesm#readme",
+  "keywords": [
+    "fs",
+    "file-system",
+    "esm",
+    "typescript",
+    "utilities",
+    "nodejs",
+    "env",
+    "json"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.10.10",
+    "typescript": "^5.7.2"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
