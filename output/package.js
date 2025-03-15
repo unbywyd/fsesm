@@ -30,7 +30,7 @@ export async function findPackageJson(options = {}) {
  * @returns The path and parsed JSON data.
  */
 export async function readPackageJson(options = {}) {
-    const filePath = await findPackageJson(options);
+    const filePath = "string" === typeof options ? options : await findPackageJson(options);
     if (!filePath)
         return null;
     const source = await readFile(filePath, "utf-8");

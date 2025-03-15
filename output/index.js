@@ -52,6 +52,7 @@ export async function updateJson(filePath, updater) {
         return;
     const updated = await updater(data);
     await writeJson(filePath, updated);
+    return updated;
 }
 /**
  * Writes data to a file, ensuring parent directories exist.

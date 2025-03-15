@@ -35,11 +35,11 @@ export async function findPackageJson(options: FindPackageJsonOptions = {}): Pro
  * @param options FindPackageJsonOptions to find the `package.json` file.
  * @returns The path and parsed JSON data.
  */
-export async function readPackageJson<T extends Record<string, any> = Record<string, any>>(options: FindPackageJsonOptions = {}): Promise<{
+export async function readPackageJson<T extends Record<string, any> = Record<string, any>>(options: FindPackageJsonOptions | string = {}): Promise<{
     path: string;
     data: T;
 } | null> {
-    const filePath = await findPackageJson(options);
+    const filePath = "string" === typeof options ? options : await findPackageJson(options);
     if (!filePath) return null;
     const source = await readFile(filePath, "utf-8");
     const parsed = JSON.parse(source);

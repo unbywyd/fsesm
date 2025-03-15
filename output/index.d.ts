@@ -23,7 +23,7 @@ export declare function writeJson(filePath: string, data: unknown): Promise<void
  * Updates a JSON file using an async updater function.
  * The updater receives the current data and should return the updated data.
  */
-export declare function updateJson<T = unknown>(filePath: string, updater: UpdateJsonFunc<T>): Promise<void>;
+export declare function updateJson<T = unknown>(filePath: string, updater: UpdateJsonFunc<T>): Promise<T>;
 /**
  * Writes data to a file, ensuring parent directories exist.
  */

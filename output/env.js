@@ -33,7 +33,7 @@ export async function findEnvFile(options = {}) {
  * @returns The path and parsed `.env` data.
  */
 export async function readEnvFile(options = {}) {
-    const filePath = await findEnvFile(options);
+    const filePath = "string" === typeof options ? options : await findEnvFile(options);
     if (!filePath)
         return null;
     const source = await readFile(filePath, "utf-8");

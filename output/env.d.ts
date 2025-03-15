@@ -17,7 +17,7 @@ export declare function findEnvFile(options?: FindEnvFileOptions): Promise<strin
  * @param options FindEnvFileOptions to find the `.env` file.
  * @returns The path and parsed `.env` data.
  */
-export declare function readEnvFile<T extends Record<string, any> = Record<string, any>>(options?: FindEnvFileOptions): Promise<{
+export declare function readEnvFile<T extends Record<string, any> = Record<string, any>>(options?: FindEnvFileOptions | string): Promise<{
     path: string;
     data: T;
 } | null>;

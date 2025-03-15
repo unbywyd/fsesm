@@ -43,9 +43,9 @@ export async function findEnvFile(
  * @returns The path and parsed `.env` data.
  */
 export async function readEnvFile<T extends Record<string, any> = Record<string, any>>(
-    options: FindEnvFileOptions = {}
+    options: FindEnvFileOptions | string = {}
 ): Promise<{ path: string; data: T } | null> {
-    const filePath = await findEnvFile(options);
+    const filePath = "string" === typeof options ? options : await findEnvFile(options);
 
     if (!filePath) return null;
 

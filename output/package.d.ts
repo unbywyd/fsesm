@@ -16,7 +16,7 @@ export declare function findPackageJson(options?: FindPackageJsonOptions): Promi
  * @param options FindPackageJsonOptions to find the `package.json` file.
  * @returns The path and parsed JSON data.
  */
-export declare function readPackageJson<T extends Record<string, any> = Record<string, any>>(options?: FindPackageJsonOptions): Promise<{
+export declare function readPackageJson<T extends Record<string, any> = Record<string, any>>(options?: FindPackageJsonOptions | string): Promise<{
     path: string;
     data: T;
 } | null>;
