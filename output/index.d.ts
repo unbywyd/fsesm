@@ -82,4 +82,5 @@ export * from "./types.js";
 export * from "./find.js";
 export * from "./env.js";
 export * from "./upwards.js";
+export * from "./package.js";
 //# sourceMappingURL=index.d.ts.map
