@@ -6,7 +6,6 @@ import { UpdateJsonFunc } from "./types.js";
 
 export type FindEnvFileOptions = {
     cwd?: string;
-    name?: string;
     maxDepth?: number;
 }
 /**
@@ -16,10 +15,11 @@ export type FindEnvFileOptions = {
  * @returns The path to the `.env` file.
  */
 export async function findEnvFile(
+    fileName?: string,
     options: FindEnvFileOptions = {}
 ): Promise<string | null> {
-    const fileName = options.name ?? ".env";
-    const filePath = await findFileUpwards(fileName, options);
+    const name = fileName ?? ".env";
+    const filePath = await findFileUpwards(name, options);
 
     if (!filePath) return null;
     try {
@@ -43,10 +43,10 @@ export async function findEnvFile(
  * @returns The path and parsed `.env` data.
  */
 export async function readEnvFile<T extends Record<string, any> = Record<string, any>>(
-    options: FindEnvFileOptions | string = {}
+    fileName?: string,
+    options: FindEnvFileOptions = {}
 ): Promise<{ path: string; data: T } | null> {
-    const filePath = "string" === typeof options ? options : await findEnvFile(options);
-
+    const filePath = await findEnvFile(fileName, options);
     if (!filePath) return null;
 
     const source = await readFile(filePath, "utf-8");

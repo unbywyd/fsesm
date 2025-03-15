@@ -1,5 +1,5 @@
 import { access, constants, lstat } from "node:fs/promises";
-import { join, dirname } from "node:path";
+import path, { join, dirname } from "node:path";
 
 export type FindFileUpwardsOptions = {
     cwd?: string;
@@ -21,6 +21,16 @@ export async function findFileUpwards(
         throw new Error("fileName must be a non-empty string");
     }
 
+    if (path.isAbsolute(fileName)) {
+        try {
+            const stats = await lstat(fileName);
+            if (stats.isFile()) {
+                return fileName;
+            }
+        } catch (err: any) { }
+        return null;
+    }
+
     const cwd = options.cwd ?? process.cwd();
     const maxDepth = options.maxDepth ?? Infinity;
     let currentPath = cwd;
@@ -29,8 +39,6 @@ export async function findFileUpwards(
     while (depth <= maxDepth) {
         const filePath = join(currentPath, fileName);
         try {
-            await access(filePath, constants.F_OK);
-
             const stats = await lstat(filePath);
             if (stats.isFile()) {
                 return filePath;

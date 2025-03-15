@@ -8,9 +8,9 @@ import { ensureFile } from "./index.js";
  * @param options FindEnvFileOptions to find the `.env` file.
  * @returns The path to the `.env` file.
  */
-export async function findEnvFile(options = {}) {
-    const fileName = options.name ?? ".env";
-    const filePath = await findFileUpwards(fileName, options);
+export async function findEnvFile(fileName, options = {}) {
+    const name = fileName ?? ".env";
+    const filePath = await findFileUpwards(name, options);
     if (!filePath)
         return null;
     try {
@@ -32,8 +32,8 @@ export async function findEnvFile(options = {}) {
  * @param options FindEnvFileOptions to find the `.env` file.
  * @returns The path and parsed `.env` data.
  */
-export async function readEnvFile(options = {}) {
-    const filePath = "string" === typeof options ? options : await findEnvFile(options);
+export async function readEnvFile(fileName, options = {}) {
+    const filePath = await findEnvFile(fileName, options);
     if (!filePath)
         return null;
     const source = await readFile(filePath, "utf-8");

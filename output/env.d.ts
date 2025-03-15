@@ -1,7 +1,6 @@
 import { UpdateJsonFunc } from "./types.js";
 export type FindEnvFileOptions = {
     cwd?: string;
-    name?: string;
     maxDepth?: number;
 };
 /**
@@ -10,14 +9,14 @@ export type FindEnvFileOptions = {
  * @param options FindEnvFileOptions to find the `.env` file.
  * @returns The path to the `.env` file.
  */
-export declare function findEnvFile(options?: FindEnvFileOptions): Promise<string | null>;
+export declare function findEnvFile(fileName?: string, options?: FindEnvFileOptions): Promise<string | null>;
 /**
  * Reads the nearest `.env` file.
  * Returns `null` if the file does not exist.
  * @param options FindEnvFileOptions to find the `.env` file.
  * @returns The path and parsed `.env` data.
  */
-export declare function readEnvFile<T extends Record<string, any> = Record<string, any>>(options?: FindEnvFileOptions | string): Promise<{
+export declare function readEnvFile<T extends Record<string, any> = Record<string, any>>(fileName?: string, options?: FindEnvFileOptions): Promise<{
     path: string;
     data: T;
 } | null>;
