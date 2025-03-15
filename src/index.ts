@@ -65,11 +65,12 @@ export async function writeJson(filePath: string, data: unknown): Promise<void> 
  * Updates a JSON file using an async updater function.
  * The updater receives the current data and should return the updated data.
  */
-export async function updateJson<T = unknown>(filePath: string, updater: UpdateJsonFunc<T>): Promise<void> {
+export async function updateJson<T = unknown>(filePath: string, updater: UpdateJsonFunc<T>): Promise<T> {
     const data = await readJson<T>(filePath);
     if (!data) return;
     const updated = await updater(data);
     await writeJson(filePath, updated);
+    return updated;
 }
 
 /**
