@@ -65,7 +65,8 @@ export declare const mkdirs: typeof ensureDir;
  * Reads a file safely, returning `null` if it doesn't exist.
  * If `encoding` is `null`, returns a Buffer.
  */
-export declare function readFileSafe(filePath: string, encoding?: BufferEncoding | null): Promise<string | Buffer | null>;
+export declare function readFileSafe(filePath: string, encoding: null): Promise<Buffer | null>;
+export declare function readFileSafe(filePath: string, encoding: BufferEncoding): Promise<string | null>;
 /**
  * Checks if a path is a directory.
  */

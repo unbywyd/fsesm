@@ -141,10 +141,6 @@ export async function emptyDir(dirPath) {
  * Alias for `ensureDir()`.
  */
 export const mkdirs = ensureDir;
-/**
- * Reads a file safely, returning `null` if it doesn't exist.
- * If `encoding` is `null`, returns a Buffer.
- */
 export async function readFileSafe(filePath, encoding = "utf-8") {
     if (!filePath || typeof filePath !== "string") {
         return null;

@@ -172,10 +172,9 @@ export const mkdirs = ensureDir;
  * Reads a file safely, returning `null` if it doesn't exist.
  * If `encoding` is `null`, returns a Buffer.
  */
-export async function readFileSafe(
-    filePath: string,
-    encoding: BufferEncoding | null = "utf-8"
-): Promise<string | Buffer | null> {
+export async function readFileSafe(filePath: string, encoding: null): Promise<Buffer | null>;
+export async function readFileSafe(filePath: string, encoding: BufferEncoding): Promise<string | null>;
+export async function readFileSafe(filePath: string, encoding: BufferEncoding | null = "utf-8"): Promise<string | Buffer | null> {
     if (!filePath || typeof filePath !== "string") {
         return null;
     }
